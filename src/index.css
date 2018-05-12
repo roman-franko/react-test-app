@@ -3,3 +3,49 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+.login-form {
+  width: 300px;
+  height: 200px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.login-field {
+  width: 300px;
+  height: 20px;
+  padding: 5px 0 5px 0;
+}
+
+.password-field {
+  width: 300px;
+  height: 20px;
+  padding: 5px 0 5px 0;
+}
+
+.login-field input {
+  display: inline;
+}
+
+.login-field label {
+  margin-right: 20px;
+}
+
+.password-field input {
+  display: inline;
+}
+
+.password-field label {
+  margin-right: 20px;
+}
+
+.login-submit {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 80px;
+  height: 40px;
+}
+

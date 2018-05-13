@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import LoginField from './LoginField';
+import InputField from './InputField';
 import PasswordField from './PasswordField';
+import ErrorMessageOnForm from './ErrorMessageOnForm';
 
-class NameForm extends Component {
+class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      login: '',
-      password: ''
+      name: '',
+      password: '',
+      errorMessageShown: false
     };
 
     this.handleLoginChange = this.handleLoginChange.bind(this);
@@ -17,30 +19,51 @@ class NameForm extends Component {
 
   handleLoginChange(e) {
     this.setState({
-      login: e.target.value
+      name: e.target.value
     });
+    this.displayErrorMessageOnForm(false);
   }
 
   handlePasswordChange(e) {
     this.setState({
       password: e.target.value
     });
+    this.displayErrorMessageOnForm(false);
+  }
+
+  displayErrorMessageOnForm(enable) {
+    this.setState({
+      errorMessageShown: enable
+    });
   }
 
   handleSubmit(event) {
-    alert([this.state.login, this.state.password].join(' / '));
+    let name = this.state.name;
+    let password = this.state.password;
+    if (this.props.onLogin(name, password)) {
+      this.setState({
+        name: '',
+        password: '',
+        errorMessageShown: false
+      });
+      this.props.onPathChange('list');
+    } else {
+      this.displayErrorMessageOnForm(true);
+    }
     event.preventDefault();
   }
 
   render() {
     return (
       <form className="login-form" onSubmit={this.handleSubmit}>
-        <LoginField onLoginChange={this.handleLoginChange} />
-        <PasswordField onPasswordChange={this.handlePasswordChange}/>
+        <InputField label={'Login:'} onChange={this.handleLoginChange} placeholder={'Enter login'}/>
 
+        <PasswordField onPasswordChange={this.handlePasswordChange}/>
+        <ErrorMessageOnForm text={'Incorrect Login / Password'} enable={this.state.errorMessageShown}/>
         <input type="submit" value="Submit" className="login-submit"/>
       </form>
     );
   }
 }
-export default NameForm;
+
+export default LoginForm;

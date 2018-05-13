@@ -39,10 +39,10 @@ class RepoForm extends Component {
   render() {
     return (
       <form className="repo-form" onSubmit={this.handleSubmit}>
-        <InputField label={'Repo:'} onChange={this.handleRepoChange} placeholder={'Enter repo'}/>
+        <InputField label="Repo:" onChange={this.handleRepoChange} placeholder="Enter repo"/>
         <input className="repo-submit" type="submit" value="Submit" className="repo-submit"/>
 
-        <ErrorMessageOnForm text={"can't be empty"} enable={this.state.errorMessageShown}/>
+        <ErrorMessageOnForm text="can't be empty" enable={this.state.errorMessageShown}/>
       </form>
     );
   }

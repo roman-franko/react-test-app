@@ -51,11 +51,11 @@ class UserPortal extends Component {
   render() {
     return (
       <CustomRouter defaultPath={'login'}>
-        <CustomRoute path={'login'}>
+        <CustomRoute path="login">
           <LoginForm routable={true} onLogin={this.handleLogin}/>
         </CustomRoute>
 
-        <CustomRoute path={'list'}>
+        <CustomRoute path="list">
           <CommitsList routable={true} onLogout={this.handleLogout} userName={() => this.getUserName()}/>
         </CustomRoute>
       </CustomRouter>

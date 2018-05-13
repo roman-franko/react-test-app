@@ -56,10 +56,10 @@ class LoginForm extends Component {
   render() {
     return (
       <form className="login-form" onSubmit={this.handleSubmit}>
-        <InputField label={'Login:'} onChange={this.handleLoginChange} placeholder={'Enter login'}/>
+        <InputField label="Login:" onChange={this.handleLoginChange} placeholder="Enter login"/>
 
         <PasswordField onPasswordChange={this.handlePasswordChange}/>
-        <ErrorMessageOnForm text={'Incorrect Login / Password'} enable={this.state.errorMessageShown}/>
+        <ErrorMessageOnForm text="Incorrect Login / Password" enable={this.state.errorMessageShown}/>
         <input type="submit" value="Submit" className="login-submit"/>
       </form>
     );

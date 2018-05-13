@@ -47,7 +47,7 @@ class CommitsList extends Component {
           <a onClick={this.handleClick}>Log out</a>
         </div>
         <RepoForm onSubmit={this.hadleRepoChange} />
-        <ErrorMessageOnForm text={"Incorrect repo name"} enable={this.state.errorMessageShown}/>
+        <ErrorMessageOnForm text="Incorrect repo name" enable={this.state.errorMessageShown}/>
 
         <div>
           <h2>Commits:</h2>
